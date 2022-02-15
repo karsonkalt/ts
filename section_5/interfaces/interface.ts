@@ -4,7 +4,7 @@ interface Person {
 }
 
 // Interface for class, objects, and functions
-const karson: Person = { name: "karson", tired: false };
+const karson: Person = { name: "karson", hungry: false };
 
 class Karson implements Person {
   name: string;
