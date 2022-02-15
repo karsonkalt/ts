@@ -1,22 +1,25 @@
-interface Person {
+interface Named {
+  readonly name: string;
+}
+
+// We can combine interfaces with extends
+interface Greetable extends Named {
+  readonly name: string;
+  greet(phrase: string): void;
+}
+
+// We can use the properties of these interfaces with the implements keyword
+class Person implements Greetable, Named {
   name: string;
-  hungry: boolean;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  greet(phrase: string) {
+    console.log(phrase + "" + this.name);
+  }
 }
 
-// Interface for class, objects, and functions
-const karson: Person = { name: "karson", hungry: false };
-
-class Karson implements Person {
-  name: string;
-  hungry: boolean;
-}
-
-interface Greeting {
-  (name: string): string;
-}
-
-const myGreeting: Greeting = (name: string): string => {
-  return `Hello ${name}`;
-};
-
-class Greeting {}
+const person1 = new Person("karson");
+person1.name = "patrick";
